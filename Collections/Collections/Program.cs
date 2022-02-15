@@ -12,6 +12,7 @@ namespace Collections
         static void Main(string[] args)
         {
             TestArrayList();
+            TestList();
             Console.ReadLine();
         }
         public static void TestArrayList()
@@ -44,6 +45,37 @@ namespace Collections
             {
                 Console.WriteLine(element);
             }
+
+
+        }
+        public static void TestList()
+        { 
+            //primitive type or valuetype collection
+            List<int> list = new List<int>();
+            list.Add(10);
+            list.Add(40);
+            list.Add(76);
+            list.Add(39);
+            Console.WriteLine("Iterating over list elements");
+            foreach (var element in list)
+            {
+                Console.WriteLine(element);
+            }
+          // non - primitive type or reference type collection
+            List<student> studentlist = new List<student>();
+            student s = new student();
+            s.Id = 23;
+            s.Name = "xyz";
+           // student S = new student() { Id = 34, Name = "fgff" };
+           studentlist.Add(new student() { Id=34,Name="shabana"});
+            studentlist.Add(new student() { Id = 4, Name = "shakil" });
+            studentlist.Add(new student() { Id = 3, Name = "shafi" });
+            foreach (student student in studentlist)
+            {
+                Console.WriteLine(student);
+               // Console.WriteLine("Id:"+student.Id+" Name:"+student.Name);
+            }
+
 
 
         }
