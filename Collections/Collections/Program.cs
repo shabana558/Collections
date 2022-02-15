@@ -9,13 +9,12 @@ namespace Collections
 {
     internal class Program
     {
-        
-
         static void Main(string[] args)
         {
             TestArrayList();
             TestList();
             TestDictionary();
+            TestSortedList();
             Console.ReadLine();
         }
         public static void TestArrayList()
@@ -78,9 +77,6 @@ namespace Collections
                 Console.WriteLine(student);
                 // Console.WriteLine("Id:"+student.Id+" Name:"+student.Name);
             }
-
-
-
         }
         public static void TestDictionary()
         {
@@ -118,11 +114,46 @@ namespace Collections
                 Console.WriteLine(ex.Message);
             }
         }
+        public static void TestSortedList()
+        {
+            SortedList<int, string> numberNames = new SortedList<int, string>();
+            numberNames.Add(3, "Three");
+            numberNames.Add(1, "One");
+            numberNames.Add(2, "Two");
+            numberNames.Add(4, null);
+            numberNames.Add(10, "Ten");
+            numberNames.Add(5, "Five");
 
-
-
+            foreach (KeyValuePair<int, string> valuePair in numberNames)
+            {
+                Console.WriteLine("Key:{0} value:{1}", valuePair.Key, valuePair.Value);
+            }
+            Console.WriteLine("number of elements:" + numberNames.Count);
+            //Console.WriteLine(Removing all key value pairs from sortedList");
+            //numberNames.clear();
+            Console.WriteLine("number of elements:" + numberNames.Count);
+            var res = numberNames.Reverse();
+            Console.WriteLine("After reverse");
+            foreach (KeyValuePair<int, string> valuePair in res)
+            {
+                Console.WriteLine("Key:{0} value:{1}", valuePair.Key, valuePair.Value);
+            }
+        }
     }
 }
+
+
+
+
+
+     
+    
+
+
+
+
+    
+
    
        
             
