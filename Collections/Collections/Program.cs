@@ -11,132 +11,21 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            TestArrayList();
-            TestList();
-            TestDictionary();
-            TestSortedList();
-            Console.ReadLine();
-        }
-        public static void TestArrayList()
-        {
-            ArrayList list = new ArrayList();
-            list.Add(40);
-            list.Add(87);
-            list.Add(98);
-            foreach (var element in list)
+            Console.WriteLine("Welcome to Collections Demo Problem!!!");
+            Console.WriteLine("Enter the option ");
+            switch (Console.ReadLine())
             {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine(list.Capacity);
-            list.Add(78);
-            list.Add(40);
-            Console.WriteLine("Number of elements present in list;" + list.Count);
-            Console.WriteLine("After adding more than 8 elements:" + list.Capacity);
-            // list.TrimToSize();
-            Console.WriteLine("Removed 40 element from list");
-            list.Remove(40);
-            Console.WriteLine();
-            foreach (var element in list)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine("Number of elements present in list:" + list.Count);
-            list.Sort();
-            Console.WriteLine("After sorting");
-            foreach (var element in list)
-            {
-                Console.WriteLine(element);
-            }
+                case "1":
+                    Collections.AddressBook.GetCustomer();
+                    Collections.AddressBook.Modify();
+                    Collections.AddressBook.ListingPeople();
+                    Collections.AddressBook.RemovePeople();
+                    break;
+                default:
+                    Console.WriteLine("Enter a valid option");
+                    break;
 
 
-        }
-        public static void TestList()
-        {
-            //primitive type or valuetype collection
-            List<int> list = new List<int>();
-            list.Add(10);
-            list.Add(40);
-            list.Add(76);
-            list.Add(39);
-            Console.WriteLine("Iterating over list elements");
-            foreach (var element in list)
-            {
-                Console.WriteLine(element);
-            }
-            // non - primitive type or reference type collection
-            List<student> studentlist = new List<student>();
-            student s = new student();
-            s.Id = 23;
-            s.Name = "xyz";
-            // student S = new student() { Id = 34, Name = "fgff" };
-            studentlist.Add(new student() { Id = 34, Name = "shabana" });
-            studentlist.Add(new student() { Id = 4, Name = "shakil" });
-            studentlist.Add(new student() { Id = 3, Name = "shafi" });
-            foreach (student student in studentlist)
-            {
-                Console.WriteLine(student);
-                // Console.WriteLine("Id:"+student.Id+" Name:"+student.Name);
-            }
-        }
-        public static void TestDictionary()
-        {
-            try
-            {
-                IDictionary<int, string> numberNames = new Dictionary<int, string>();
-                numberNames.Add(4, "Four"); //adding a key/value using the Add() method
-                numberNames.Add(2, "Two");
-                numberNames.Add(89, "EightyNine");
-                numberNames.Add(3, null);
-
-                //The following throws run-time exception: key already added.
-                //numberNames.Add(3, "Three"); 
-                if (numberNames.ContainsKey(9))
-                    Console.WriteLine("Fetching 89 value:" + numberNames[9]);
-                else
-                    Console.WriteLine("Key not exist");
-
-                foreach (KeyValuePair<int, string> kvp in numberNames)
-                    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
-
-                //creating a dictionary using collection-initializer syntax
-                var cities = new Dictionary<string, string>(){
-             {"UK", "London, Manchester, Birmingham"},
-             {"USA", "Chicago, New York, Washington"},
-             {"India", "Mumbai, New Delhi, Pune"}
-              };
-
-                foreach (var kvp in cities)
-                    Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-        public static void TestSortedList()
-        {
-            SortedList<int, string> numberNames = new SortedList<int, string>();
-            numberNames.Add(3, "Three");
-            numberNames.Add(1, "One");
-            numberNames.Add(2, "Two");
-            numberNames.Add(4, null);
-            numberNames.Add(10, "Ten");
-            numberNames.Add(5, "Five");
-
-            foreach (KeyValuePair<int, string> valuePair in numberNames)
-            {
-                Console.WriteLine("Key:{0} value:{1}", valuePair.Key, valuePair.Value);
-            }
-            Console.WriteLine("number of elements:" + numberNames.Count);
-            //Console.WriteLine(Removing all key value pairs from sortedList");
-            //numberNames.clear();
-            Console.WriteLine("number of elements:" + numberNames.Count);
-            var res = numberNames.Reverse();
-            Console.WriteLine("After reverse");
-            foreach (KeyValuePair<int, string> valuePair in res)
-            {
-                Console.WriteLine("Key:{0} value:{1}", valuePair.Key, valuePair.Value);
             }
         }
     }
