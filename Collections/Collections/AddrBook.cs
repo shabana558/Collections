@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Collections
 {
-    public class AddrBook
+    public class  AddrBook
     {
         internal List<AddrBook> people;
 
